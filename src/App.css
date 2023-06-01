@@ -1,38 +1,306 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  /* box-sizing: border-box; */
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #001220;
+}
+
 .App {
+  min-height: 100dvh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outlet {
+  z-index: 1;
+  padding-bottom: 100px;
+}
+
+.svg-top {
+  position: fixed;
+  max-width: 70px;
+  top: 2%;
+  right: 2%;
+}
+
+.svg-bottom {
+  position: fixed;
+  max-width: 70px;
+  bottom: 2%;
+  left: 2%;
+}
+
+.bottom-nav-container {
+  z-index: 1;
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation {
+  position: relative;
+  width: 240px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: #fff;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation ul li {
+  position: relative;
+  list-style: none;
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 80px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.navigation ul li.active a .icon {
+  color: #fff;
+}
+
+.navigation ul li a .icon i {
+  font-size: 20px;
+}
+
+.navigation ul li a .title {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translate(-50%, 15%);
+  width: auto;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 7px;
+  transition: 0.5s;
+  opacity: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  visibility: hidden;
+}
+
+.navigation ul li:hover a .title {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 50%);
+}
+
+.navigation ul li a .title::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  bottom: -8px;
+  left: 48%;
+  transform: rotate(45deg) translateX(-50%);
+  border-radius: 2px;
+}
+
+.navigation ul .indicator {
+  position: absolute;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  transition: all 0.5s;
+}
+
+.navigation ul .indicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.navigation ul li:nth-child(1).active~.indicator {
+  transform: translateX(calc(80px * 0));
+}
+
+.navigation ul li:nth-child(2).active~.indicator {
+  transform: translateX(calc(80px * 1));
+}
+
+.navigation ul li:nth-child(3).active~.indicator {
+  transform: translateX(calc(80px * 2));
+}
+
+.navigation ul li:nth-child(1).active~.indicator::before {
+  background-color: crimson;
+}
+
+.navigation ul li:nth-child(2).active~.indicator::before {
+  background-color: #3c40c6;
+}
+
+.navigation ul li:nth-child(3).active~.indicator::before {
+  background-color: #05c46b;
+}
+
+
+
+/* HOME STYLE */
+.homepage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.homepage img {
+  max-width: 350px;
+}
+
+.name-title {
+  padding: 15px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.name-title h1 {
+  font-size: 35px;
+  letter-spacing: 3px;
+  color: wheat;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.name-title h2 {
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: crimson;
+}
+
+.contacts {
+  gap: 20px;
+}
+
+.contact img {
+  max-width: 30px;
+  cursor: pointer;
+}
+
+
+/* ABOUT STYLE */
+.about {
+  max-width: 500px;
+}
+
+.fadeLeftMini {
+  animation: fadeLeftMini 1s;
+  animation-fill-mode: both;
+}
+
+.fadeRightMini {
+  animation: fadeRightMini 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeLeftMini {
+  0% {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes fadeRightMini {
+  0% {
+    opacity: 0;
+    transform: translateY(30%);
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .name-title h1 {
+    font-size: 50px;
+  }
+
+  .name-title h2 {
+    font-size: 25px;
+  }
+
+  .svg-top {
+    max-width: 120px;
+  }
+
+  .svg-bottom {
+    max-width: 120px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .name-title h1 {
+    font-size: 60px;
+  }
+
+  .name-title h2 {
+    font-size: 35px;
+  }
+
+  .homepage img {
+    max-width: 450px;
+  }
+
+  .contacts {
+    gap: 20px;
+  }
+
+
+  .svg-bottom,
+  .svg-top {
+    max-width: 180px;
   }
 }

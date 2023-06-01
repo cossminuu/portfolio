@@ -4,10 +4,47 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    // loader: rootLoader,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        // loader: rootLoader,
+      },
+      {
+        path: "/about",
+        element: <About />,
+        // loader: aboutLoader,
+      },
+      {
+        path: "/projects",
+        element: <Projects />,
+        // loader: projectsLoader,
+      }
+    ]
+  },
+
+]);
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
