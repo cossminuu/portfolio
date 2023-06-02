@@ -1,7 +1,7 @@
 import './App.css';
-import homeSvg from './blob.svg'
-import aboutSvg from './blob1.svg'
-import projectsSvg from './blob2.svg'
+import homeSvg from './assets/blob.svg'
+import aboutSvg from './assets/blob1.svg'
+import projectsSvg from './assets/blob2.svg'
 import { Outlet, Link, useLocation } from "react-router-dom";
 
 

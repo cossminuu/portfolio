@@ -1,7 +1,6 @@
 import React from 'react'
-import portrait from '../portrait-rounded.png'
+import portrait from '../assets/512x512.png'
 import data from '../data'
-
 
 const Home = () => {
     return (
