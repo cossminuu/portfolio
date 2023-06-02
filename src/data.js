@@ -135,9 +135,11 @@ export default {
         },
         {
             title: 'Languages',
-            list: ['English',
-                'Italian',
-                'Romanian']
+            list: [
+                'Romanian',
+                'English',
+                'Italian'
+            ]
         },
 
     ],
